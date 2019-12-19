@@ -26,7 +26,7 @@ def hello_world():
 	# print(contents)
 	# return contents
 	print(var)
-	return var
+	return str(var)
 
 
 @app.route('/send',methods=['POST','GET'])
