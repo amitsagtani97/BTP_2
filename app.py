@@ -9,8 +9,8 @@ app = Flask(__name__)
 CORS(app)
 
 
-lat = 45.78
-lon = 76.80
+lat = 75.9228400
+lon = 26.9365739
 
 @app.route('/') 
 def hello_world(): 
@@ -25,8 +25,9 @@ def hello_world():
 	# contents = urllib.request.urlopen("https://wanderdrone.appspot.com/").read()
 	# print(contents)
 	# return contents
-	print(var)
-	return str(var)
+	json.dumps(var)
+	print(type(var))
+	return var
 
 
 @app.route('/send',methods=['POST','GET'])
@@ -34,8 +35,8 @@ def config():
 #   Retrieves the configurations available in the database at present.
     global lat
     global lon
-    lat=request.args.get('lat')
-    lon=request.args.get('long')
+    lat=double(request.args.get('lat'))
+    lon=double(request.args.get('long'))
     print(lat)
     print(lon)
     return "data updated!"

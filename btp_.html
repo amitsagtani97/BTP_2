@@ -19,10 +19,11 @@
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/satellite-streets-v9',
-        zoom: 10,
+        zoom: 0,
     });
 
-    var url = 'http://127.0.0.1:5000/';
+    var url = 'https://btp-sem7.herokuapp.com/';
+    //var url = 'http://127.0.0.1:5000/';
     console.log("****************************************************" + typeof url)
     map.on('load', function() {
         window.setInterval(function() {
