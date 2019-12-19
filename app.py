@@ -8,17 +8,38 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+lat = 45.78
+lon = 76.80
+
 @app.route('/') 
 def hello_world(): 
-	var = '{"geometry": {"type": "Point", "coordinates": [-118.244, 34.0544779]}, "type": "Feature", "properties": {}}'
+	global lat
+	global lon
+	var = {"geometry": {"type": "Point", "coordinates": [lat, lon]}, "type": "Feature", "properties": {}}
 	
 	#my_point = Point((-3.68, 40.41))
 	#return var
 
 
-	contents = urllib.request.urlopen("https://wanderdrone.appspot.com/").read()
-	print(contents)
-	return contents
+	# contents = urllib.request.urlopen("https://wanderdrone.appspot.com/").read()
+	# print(contents)
+	# return contents
+	print(var)
+	return var
+
+
+@app.route('/send',methods=['POST','GET'])
+def config():
+#   Retrieves the configurations available in the database at present.
+    if request.method=='POST':
+        global lat
+        global lon
+        lat=request.args.get('lat')
+        lon=request.args.get('long')
+        print(lat)
+        print(lon)
+        return render_template('configs.html', config_names=config_names, company_name=company_name)
   
 # main driver function 
 if __name__ == '__main__': 
