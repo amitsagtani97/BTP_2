@@ -35,8 +35,8 @@ def config():
 #   Retrieves the configurations available in the database at present.
     global lat
     global lon
-    lat=double(request.args.get('lat'))
-    lon=double(request.args.get('long'))
+    lat=float(request.args.get('lat'))
+    lon=float(request.args.get('long'))
     print(lat)
     print(lon)
     return "data updated!"
