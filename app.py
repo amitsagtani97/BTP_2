@@ -2,7 +2,7 @@ import json
 import urllib.request
 #from geojson import Feature, Point
 
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -32,14 +32,13 @@ def hello_world():
 @app.route('/send',methods=['POST','GET'])
 def config():
 #   Retrieves the configurations available in the database at present.
-    if request.method=='POST':
-        global lat
-        global lon
-        lat=request.args.get('lat')
-        lon=request.args.get('long')
-        print(lat)
-        print(lon)
-        return "data updated!"
+    global lat
+    global lon
+    lat=request.args.get('lat')
+    lon=request.args.get('long')
+    print(lat)
+    print(lon)
+    return "data updated!"
 # main driver function 
 if __name__ == '__main__': 
   
