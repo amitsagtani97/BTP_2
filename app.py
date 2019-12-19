@@ -25,9 +25,9 @@ def hello_world():
 	# contents = urllib.request.urlopen("https://wanderdrone.appspot.com/").read()
 	# print(contents)
 	# return contents
-	json.dumps(var)
+	var = json.dumps(var)
 	print(type(var))
-	return var
+	return (var)
 
 
 @app.route('/send',methods=['POST','GET'])
