@@ -39,8 +39,7 @@ def config():
         lon=request.args.get('long')
         print(lat)
         print(lon)
-        return render_template('configs.html', config_names=config_names, company_name=company_name)
-  
+        return "data updated!"
 # main driver function 
 if __name__ == '__main__': 
   
